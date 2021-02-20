@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends
+description: TechTrends project helm
+keywords:
+- techtrends
+version: 1.0.0
+maintainers:
+- name: hussain 
+  email: hussain@gmail.com 
