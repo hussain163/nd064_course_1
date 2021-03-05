@@ -11,26 +11,34 @@ docker run -d -p 7111:3111 techtrends
 # Get the running docker container id
 docker ps
 #Use the container id to check the logs
-docker logs -f d5255c63088a
+docker logs -f f95a6932ace6
 
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
-(base) hussain:project hussain$ docker logs -f d5255c63088a
+(base) hussain:project hussain$ docker logs f95a6932ace6
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:11] "GET / HTTP/1.1" 200 -
-INFO:app:About us page retrieved
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:16] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:24] "GET /create HTTP/1.1" 200 -
-INFO:app:Article created: GCP
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:38] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:38] "GET / HTTP/1.1" 200 -
-INFO:app:About us page retrieved
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:46] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:49] "GET / HTTP/1.1" 200 -
-INFO:app:Article found: 2020 CNCF Annual Report
-INFO:werkzeug:172.17.0.1 - - [20/Feb/2021 12:31:50] "GET /1 HTTP/1.1" 200 -
+INFO: werkzeug - [2021-03-05 18:37:48,392] -  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+(base) hussain:project hussain$ docker logs -f f95a6932ace6
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO: werkzeug - [2021-03-05 18:37:48,392] -  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO: werkzeug - [2021-03-05 18:38:18,093] - 172.17.0.1 - - [05/Mar/2021 18:38:18] "GET / HTTP/1.1" 200 -
+INFO: werkzeug - [2021-03-05 18:38:18,113] - 172.17.0.1 - - [05/Mar/2021 18:38:18] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO: werkzeug - [2021-03-05 18:38:19,162] - 172.17.0.1 - - [05/Mar/2021 18:38:19] "GET /favicon.ico HTTP/1.1" 404 -
+INFO: app - [2021-03-05 18:38:23,760] - Article "2020 CNCF Annual Report" retrieved!
+INFO: werkzeug - [2021-03-05 18:38:23,764] - 172.17.0.1 - - [05/Mar/2021 18:38:23] "GET /1 HTTP/1.1" 200 -
+INFO: app - [2021-03-05 18:38:27,674] - About us page retrieved
+INFO: werkzeug - [2021-03-05 18:38:27,677] - 172.17.0.1 - - [05/Mar/2021 18:38:27] "GET /about HTTP/1.1" 200 -
+INFO: werkzeug - [2021-03-05 18:38:28,695] - 172.17.0.1 - - [05/Mar/2021 18:38:28] "GET /create HTTP/1.1" 200 -
+INFO: app - [2021-03-05 18:38:36,062] -  "Title" Article created!
+INFO: werkzeug - [2021-03-05 18:38:36,063] - 172.17.0.1 - - [05/Mar/2021 18:38:36] "POST /create HTTP/1.1" 302 -
+INFO: werkzeug - [2021-03-05 18:38:36,070] - 172.17.0.1 - - [05/Mar/2021 18:38:36] "GET / HTTP/1.1" 200 -
+INFO: werkzeug - [2021-03-05 18:38:44,114] - 172.17.0.1 - - [05/Mar/2021 18:38:44] "GET /healthz HTTP/1.1" 200 -
+INFO: werkzeug - [2021-03-05 18:38:49,232] - 172.17.0.1 - - [05/Mar/2021 18:38:49] "GET /metrics HTTP/1.1" 200 -
