@@ -9,7 +9,7 @@ service:
 
 
 image:
-  repository: techtrends 
+  repository: hussain163/techtrends 
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -24,5 +24,11 @@ resources:
     memory: 128Mi
 
 containerPort: 3111
-livenessProbe: /healthz
-readinessProbe: /healthz
+livenessProbe:
+    httpGet:
+      path: /healthz
+      port: 3111
+readinessProbe:
+    httpGet:
+      path: /healthz
+      port: 3111

@@ -40,10 +40,10 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-      app.logger.info('Article not found with id: ' + str(post_id))
+      app.logger.info('Article with Id: {} does not exist!'.format(post_id))
       return render_template('404.html'), 404
     else:
-      app.logger.info('Article found: ' + post['title'])  
+      app.logger.info('Article "{}" retrieved!'.format(post['title']))
       return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -67,7 +67,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            app.logger.info('Article created: ' + title)
+            app.logger.info(' "{}" Article created!'.format(title))
             return redirect(url_for('index'))
 
     return render_template('create.html')
@@ -97,5 +97,10 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-   logging.basicConfig(level=logging.DEBUG) 
+   stdoutHandler = logging.StreamHandler(sys.stdout) # stdout handler 
+   stderrHandler = logging.StreamHandler(sys.stderr) # stderr handler 
+   handlers = [stderrHandler, stdoutHandler]
+   # format output
+   formatOutput = '%(levelname)s: %(name)-2s - [%(asctime)s] - %(message)s'
+   logging.basicConfig(format=formatOutput, level=logging.DEBUG, handlers=handlers)
    app.run(host='0.0.0.0', port='3111')
