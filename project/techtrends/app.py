@@ -2,7 +2,7 @@ import sqlite3
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
-import logging
+import logging, sys
 
 COUNTER = 0
 # Function to get a database connection.
